@@ -2,10 +2,10 @@ package com.example.springcore
 
 import com.example.springcore.members.Grade
 import com.example.springcore.members.Member
-import com.example.springcore.members.MemberServiceImpl
 
 fun main(args: Array<String>) {
-    val memberService = MemberServiceImpl()
+    val appConfig = AppConfig()
+    val memberService = appConfig.memberService()
     val member = Member(1L, "memberA", Grade.VIP)
     memberService.join(member)
 

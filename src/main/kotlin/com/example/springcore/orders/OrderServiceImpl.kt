@@ -1,12 +1,12 @@
 package com.example.springcore.orders
 
-import com.example.springcore.discount.FixDiscountPolicy
-import com.example.springcore.members.InMemoryMemberRepository
+import com.example.springcore.discount.DiscountPolicy
+import com.example.springcore.members.MemberRepository
 
-class OrderServiceImpl : OrderService {
-
-    private val memberRepository = InMemoryMemberRepository()
-    private val discountPolicy = FixDiscountPolicy()
+class OrderServiceImpl(
+    private val memberRepository: MemberRepository,
+    private val discountPolicy: DiscountPolicy,
+) : OrderService {
 
     override fun createOrder(memberId: Long, itemName: String, itemPrice: Int): Order {
         val member = memberRepository.findById(memberId) ?: throw IllegalArgumentException()

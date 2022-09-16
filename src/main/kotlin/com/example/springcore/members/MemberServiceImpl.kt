@@ -1,8 +1,8 @@
 package com.example.springcore.members
 
-class MemberServiceImpl : MemberService {
-
-    private val memberRepository = InMemoryMemberRepository()
+class MemberServiceImpl(
+    private val memberRepository: MemberRepository
+) : MemberService {
 
     override fun join(member: Member) {
         memberRepository.store(member)
