@@ -2,7 +2,6 @@ package com.example.springcore.orders
 
 import com.example.springcore.discount.FixDiscountPolicy
 import com.example.springcore.members.InMemoryMemberRepository
-import com.example.springcore.members.MemberRepository
 
 class OrderServiceImpl : OrderService {
 
