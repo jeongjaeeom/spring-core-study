@@ -10,10 +10,14 @@ import com.example.springcore.orders.OrderServiceImpl
 class AppConfig {
 
     fun memberService(): MemberService {
-        return MemberServiceImpl(InMemoryMemberRepository())
+        return MemberServiceImpl(memberRepository())
     }
 
     fun orderService(): OrderService {
-        return OrderServiceImpl(InMemoryMemberRepository(), FixDiscountPolicy())
+        return OrderServiceImpl(memberRepository(), discountPolicy())
     }
+
+    private fun discountPolicy() = FixDiscountPolicy()
+
+    private fun memberRepository() = InMemoryMemberRepository()
 }
